@@ -1,0 +1,140 @@
+*,
+*:after,
+*:before {
+    box-sizing: border-box
+}
+
+.wizard {
+    margin: 0 auto;
+    max-width: 1200px
+}
+
+.wizard:after {
+    content: "";
+    display: table;
+    clear: both
+}
+
+.header {
+    margin-bottom: 30px;
+    margin-top: 30px
+}
+
+.title {
+    color:#2c81fd;
+    font-size: 30px;
+    text-align: center
+}
+
+.progress {
+    background-color: white;
+    display: table;
+    margin: 0;
+    padding: 0 0 20px 0;
+    position: relative;
+    width: 100%
+}
+
+.progress:after {
+    background-color: #E4E4E4;
+    content: '';
+    height: 2px;
+    left: 10%;
+    position: absolute;
+    top: 50px;
+    width: 80%
+}
+
+.progress:before {
+    background-color:#2c81fd;
+    content: '';
+    height: 2px;
+    left: 10%;
+    position: absolute;
+    top: 50px;
+    z-index: 1
+}
+
+.progress li {
+    color: #B9B9B9;
+    display: table-cell;
+    height: 200px;
+    padding-left: 3px;
+    padding-right: 3px;
+    position: relative;
+    text-align: center
+}
+
+.progress li.complete {
+    color:#2c81fd
+}
+
+.progress li .step {
+    background-color: #EDEBEB;
+    border: 1px solid #B9B9B9;
+    color: #898989;
+    display: block;
+    height: 100px;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 95px;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+    width: 100px;
+    z-index: 1;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%
+}
+
+.progress li .step.complete {
+    background-color: white;
+    border: 1px solid#2c81fd;
+    color:#2c81fd
+}
+
+.progress li .step-txt {
+    font-weight: 100;
+    font-size: 15px;
+    left: 0;
+    position: absolute;
+    margin-top: 10px;
+    right: 0
+}
+
+@media (max-width: 890px) {
+    .progress li .step-txt {
+        font-size: 13px
+    }
+
+    .progress li .step-txt br {
+        display: none
+    }
+}
+
+@media (max-width: 590px) {
+    .progress {
+        margin-top: 30px
+    }
+
+    .progress:after,
+    .progress:before {
+        top: 21px
+    }
+
+    .progress li {
+        height: 50px
+    }
+
+    .progress li .step {
+        font-size: 20px;
+        height: 42px;
+        line-height: 40px;
+        width: 42px
+    }
+
+    .progress .step-txt {
+        display: none
+    }
+}
