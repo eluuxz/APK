@@ -122,14 +122,14 @@
                 $row = mysqli_fetch_assoc($result);
                 if ($row['username'] === $uname && $row['password'] === $pass && $row['level'] === "petugas") {
                     $_SESSION['username'] = $row['username'];
-                    $_SESSION['nama'] = $row['nama'];
+                    $_SESSION['nama_petugas'] = $row['nama_petugas'];
                     $_SESSION['id_petugas'] = $row['id_petugas'];
                     $_SESSION['level'] = $row['level'];
                     header("Location: dashboard/petugas/index.php");
                     exit();
                 }else if ($row['username'] === $uname && $row['password'] === $pass && $row['level'] === "admin") {
                     $_SESSION['username'] = $row['username'];
-                    $_SESSION['nama'] = $row['nama'];
+                    $_SESSION['nama_petugas'] = $row['nama_petugas'];
                     $_SESSION['id_petugas'] = $row['id_petugas'];
                     $_SESSION['level'] = $row['level'];
                     header("Location: dashboard/admin/index.php");

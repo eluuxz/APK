@@ -1,7 +1,7 @@
 <?php
 session_start();
 include '../../app/function.php';
-if (isset($_SESSION['id_petugas']) && isset($_SESSION['username'])) {
+if (isset($_SESSION['id_petugas']) && isset($_SESSION['username']) && isset($_SESSION['level'])) {
 ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -122,7 +122,7 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username'])) {
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['nama']; ?></span>
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['nama_petugas']; ?></span>
                                     <img class="img-profile rounded-circle" src="../assets/img/undraw_profile.svg">
                                 </a>
                                 <!-- Dropdown - User Information -->
