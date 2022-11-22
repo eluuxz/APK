@@ -1,7 +1,7 @@
 <?php
 session_start();
 include '../../app/function.php';
-if (isset($_SESSION['id_user']) && isset($_SESSION['username'])) {
+if (isset($_SESSION['id_petugas']) && isset($_SESSION['username']) && isset($_SESSION['level'])) {
 ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -18,8 +18,22 @@ if (isset($_SESSION['id_user']) && isset($_SESSION['username'])) {
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
         <!-- Custom styles for this template-->
         <link href="../assets/css/sb-admin-2.min.css" rel="stylesheet">
-        <!-- Sweet Alert -->
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!-- Data Tables -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+        <style>
+            .thumbnail {
+                top: -50px;
+                left: -35px;
+                display: block;
+                z-index: 999;
+                cursor: pointer;
+            }
+
+            /*change the number below to scale to the appropriate size*/
+            .thumbnail:hover {
+                transform: scale(5);
+            }
+        </style>
     </head>
 
     <body id="page-top">
@@ -59,21 +73,36 @@ if (isset($_SESSION['id_user']) && isset($_SESSION['username'])) {
                 <!-- Nav Item - Buat Laporan -->
                 <li class="nav-item active">
                     <a class="nav-link" href="laporan.php">
-                        <i class="fas fa-edit"></i>
-                        <span>Buat Laporan</span></a>
+                        <i class="fas fa-book-open"></i>
+                        <span>Laporan Masyarakat</span></a>
+                </li>
+
+                <!-- Nav Item - Laporan masyarakat -->
+                <li class="nav-item">
+                    <a class="nav-link" href="verify.php">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Laporan Terverify</span></a>
                 </li>
 
                 <!-- Nav Item - Tanggapan -->
                 <li class="nav-item">
-                    <a class="nav-link" href="lihatlaporan.php">
-                        <i class="fas fa-eye"></i>
-                        <span>Lihat Laporan</span></a>
+                    <a class="nav-link" href="tanggapan.php">
+                        <i class="fas fa-bookmark"></i>
+                        <span>Tanggapan</span></a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="lihattanggapan.php">
-                        <i class="fas fa-comments"></i>
-                        <span>Lihat Tanggapan</span></a>
+                    <a class="nav-link" href="datapetugas.php">
+                        <i class="fas fa-user-tie"></i>
+                        <span>Data Petugas</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="datamasyarakat.php">
+                        <i class="fas fa-user-tie"></i>
+                        <span>Data Masyarakat</span>
+                    </a>
                 </li>
 
                 <!-- Divider -->
@@ -107,7 +136,7 @@ if (isset($_SESSION['id_user']) && isset($_SESSION['username'])) {
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['nama']; ?></span>
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
                                     <img class="img-profile rounded-circle" src="../assets/img/undraw_profile.svg">
                                 </a>
                                 <!-- Dropdown - User Information -->
@@ -134,7 +163,7 @@ if (isset($_SESSION['id_user']) && isset($_SESSION['username'])) {
 
                         <!-- Page Heading -->
                         <div class="d-sm-flex align-items-center justify-content-between">
-                            <h1 class="h3 mb-0 text-gray-800">Sampaikan Laporan Anda</h1>
+                            <h1 class="h3 mb-0 text-gray-800">Laporan Masyarakat</h1>
                         </div>
                         <hr>
 
@@ -151,36 +180,65 @@ if (isset($_SESSION['id_user']) && isset($_SESSION['username'])) {
                                                 </button>
                                             </div>
                                         <?php } ?>
-                                        <form action="" method="POST" enctype="multipart/form-data">
-                                            <!-- Email input -->
-                                            <input type="hidden" class="form-control" value="<?php echo $_SESSION['id_user']; ?>" name="id_user" readonly>
-                                            <div class="mb-3">
-                                                <label for="judul" class="form-label">Ketik Judul Laporan Anda</label>
-                                                <input type="text" class="form-control" id="judul" name="judul_laporan" required>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="isi" class="form-label">Ketik Isi Laporan Anda</label>
-                                                <textarea class="form-control" id="isi" rows="3" name="isi_laporan" required></textarea>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col">
-                                                    <label class="form-label">Tanggal Kejadian</label>
-                                                    <input type="datetime-local" class="form-control" name="tanggal_laporan" value="<?php date_default_timezone_set('Asia/Makassar'); echo date_create('now')->format('Y-m-d H:i:s'); ?>" max="<?php date_default_timezone_set('Asia/Makassar'); echo date_create('now')->format('Y-m-d H:i:s'); ?>" required>
-                                                </div>
-                                                <div class="col">
-                                                    <label for="lokasi" class="form-label">Ketik Lokasi Kejadian</label>
-                                                    <input type="text" class="form-control" id="lokasi" name="lokasi_laporan" required>
-                                                </div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="foto">Masukkan Foto</label>
-                                                <input type="file" class="form-control-file" id="foto" name="foto">
-                                            </div>
-                                            <input type="hidden" class="form-control" name="status" value="proses" readonly>
-                                            <div class="text-center">
-                                                <button type="submit" class="btn btn-primary btn-block" name="lapor">Lapor</button>
-                                            </div>
-                                        </form>
+                                        <div class="table-responsive">
+                                            <table class="table" id="table_id">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">No</th>
+                                                        <th scope="col">Nama Pelapor</th>
+                                                        <th scope="col">Judul Laporan</th>
+                                                        <th scope="col">Isi Laporan</th>
+                                                        <th scope="col">Tanggal Laporan</th>
+                                                        <th scope="col">Lokasi Laporan</th>
+                                                        <th scope="col">Foto</th>
+                                                        <th scope="col">Aksi</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                    $i = 1;
+
+                                                    $query_mysql = $conn->query("SELECT * FROM laporan LEFT JOIN users ON laporan.id_user = users.id_user where status ='proses' ORDER BY id_laporan DESC");
+                                                    while ($data = $query_mysql->fetch_array()) {
+                                                    ?>
+                                                        <tr>
+                                                            <th scope="row"><?= $i++; ?>.</th>
+                                                            <td><?php echo $data['nama']; ?></td>
+                                                            <td><?php echo $data['judul_laporan']; ?></td>
+                                                            <td><?php echo $data['isi_laporan']; ?></td>
+                                                            <td><?php echo $data['tanggal_laporan']; ?></td>
+                                                            <td><?php echo $data['lokasi_laporan']; ?></td>
+                                                            <td>
+                                                                <img src="../assets/img/user/<?php echo $data['foto']; ?>" alt="../assets/img/user/<?php echo $data['foto']; ?>" class="thumbnail" width="100" />
+                                                            </td>
+                                                            <td>
+                                                                <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#verify<?php echo $data['id_laporan']; ?>"> <i class="fas fa-check-square mr-2"></i>VERIFIKASI </a>
+                                                                <!-- Modal Hapus Lpaoran -->
+                                                                <div class="modal fade" id="verify<?php echo $data['id_laporan']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                    <div class="modal-dialog">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Verifikasi Laporan</h5>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                    <span aria-hidden="true">&times;</span>
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <p>Tekan Tombol Verifikasi Jika Ingin Verifikasi Laporan </p>
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                                <a href="../../app/function.php?verifikasilaporan&id_laporan=<?php echo $data['id_laporan']; ?>&level=<?php echo $_SESSION['level']; ?>" class="btn btn-success">Verifikasi</a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    <?php } ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -252,15 +310,13 @@ if (isset($_SESSION['id_user']) && isset($_SESSION['username'])) {
         <script src="../assets/js/demo/chart-area-demo.js"></script>
         <script src="../assets/js/demo/chart-pie-demo.js"></script>
 
-        <?php if (isset($_GET['error'])) { ?>
-            <script>
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Gambar Harus Berekstensi JPG / PNG'
-                })
-            </script>
-        <?php } ?>
+        <!-- Data Tables -->
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#table_id').DataTable();
+            });
+        </script>
 
     </body>
 
@@ -268,9 +324,7 @@ if (isset($_SESSION['id_user']) && isset($_SESSION['username'])) {
 
 <?php
 } else {
-    // session_unset();
-    // session_destroy();
-    header("Location: ../../login.php");
+    header("Location: ../../loginpetugas.php");
     exit();
 }
 ?>

@@ -211,6 +211,7 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username'])) {
                                                                             </div>
                                                                             <form action="" method="POST">
                                                                                 <div class="modal-body">
+                                                                                    <input type="hidden" class="form-control mb-3" value="<?php echo $_SESSION['level']; ?>" name="level" readonly>
                                                                                     <input type="hidden" class="form-control mb-3" value="<?php echo $data['id_user']; ?>" name="id_user" readonly>
                                                                                     <input type="hidden" class="form-control mb-3" value="<?php echo $data['id_laporan']; ?>" name="id_laporan" readonly>
                                                                                     <input type="hidden" class="form-control" value="<?php echo $_SESSION['id_petugas']; ?>" name="id_petugas" readonly>

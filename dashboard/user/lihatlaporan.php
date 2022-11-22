@@ -22,20 +22,6 @@ if (isset($_SESSION['id_user']) && isset($_SESSION['username'])) {
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
         <!-- Sweet Alert -->
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <style>
-            .thumbnail {
-                top: -50px;
-                left: -35px;
-                display: block;
-                z-index: 999;
-                cursor: pointer;
-            }
-
-            /*change the number below to scale to the appropriate size*/
-            .thumbnail:hover {
-                transform: scale(5);
-            }
-        </style>
     </head>
 
     <body id="page-top">
@@ -215,7 +201,7 @@ if (isset($_SESSION['id_user']) && isset($_SESSION['username'])) {
                                                                 ?>
                                                             </td>
                                                             <td>
-                                                                <a href="#" class="btn btn-primary btn-sm <?php if ($data['status'] === "tanggap"){ echo 'disabled'; } ?>" data-toggle="modal" data-target="#previewlaporan<?php echo $data['id_laporan']; ?>"> <i class="fas fa-eye mr-2"></i>PREVIEW </a>
+                                                                <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#previewlaporan<?php echo $data['id_laporan']; ?>"> <i class="fas fa-eye mr-2"></i>PREVIEW </a>
                                                                 <!-- Modal Preview Laporan -->
                                                                 <div class="modal fade" id="previewlaporan<?php echo $data['id_laporan']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                     <div class="modal-dialog modal-lg modal-dialog-scrollable">
@@ -237,7 +223,7 @@ if (isset($_SESSION['id_user']) && isset($_SESSION['username'])) {
                                                                                 </div>
                                                                                 <div class="row mb-3">
                                                                                     <div class="col">
-                                                                                        <label class="form-label">Tanggal Kejadian</label>
+                                                                                        <label class="form-label">Tanggal Laporan</label>
                                                                                         <input type="date" class="form-control" name="tanggal_laporan" value="<?php echo $data['tanggal_laporan']; ?>" readonly>
                                                                                     </div>
                                                                                     <div class="col">
@@ -247,7 +233,7 @@ if (isset($_SESSION['id_user']) && isset($_SESSION['username'])) {
                                                                                 </div>
                                                                                 <div class="mb-3">
                                                                                     <p>Foto Saat Ini</p>
-                                                                                    <img src="../assets/img/user/<?php echo $data['foto']; ?>" alt="<?php echo $data['foto']; ?>" width="300px">
+                                                                                    <img src="../assets/img/user/<?php echo $data['foto']; ?>" alt="<?php echo $data['foto']; ?>" width="750px">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="modal-footer justify-content-center">

@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    if (isset($_SESSION['id_petugas']) && isset($_SESSION['username'])) {
+    if (isset($_SESSION['id_petugas']) && isset($_SESSION['username']) && isset($_SESSION['level'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,8 +46,8 @@
             <hr class="sidebar-divider my-0">
         
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link" href="#">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.php">
                     <i class="fas fa-users"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -62,34 +62,34 @@
 
             <!-- Nav Item - Buat Laporan -->
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="laporan.php">
                     <i class="fas fa-book-open"></i>
                     <span>Laporan Masyarakat</span></a>
             </li>
         
             <!-- Nav Item - Laporan masyarakat -->
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="verify.php">
                     <i class="fas fa-check-circle"></i>
                     <span>Laporan Terverify</span></a>
             </li>
         
             <!-- Nav Item - Tanggapan -->
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="tanggapan.php">
                     <i class="fas fa-bookmark"></i>
                     <span>Tanggapan</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="datapetugas.php">
                     <i class="fas fa-user-tie"></i>
                     <span>Data Petugas</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="datamasyarakat.php">
                     <i class="fas fa-user-tie"></i>
                     <span>Data Masyarakat</span>
                 </a>

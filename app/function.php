@@ -124,12 +124,14 @@
                     $_SESSION['username'] = $row['username'];
                     $_SESSION['nama'] = $row['nama'];
                     $_SESSION['id_petugas'] = $row['id_petugas'];
+                    $_SESSION['level'] = $row['level'];
                     header("Location: dashboard/petugas/index.php");
                     exit();
                 }else if ($row['username'] === $uname && $row['password'] === $pass && $row['level'] === "admin") {
                     $_SESSION['username'] = $row['username'];
                     $_SESSION['nama'] = $row['nama'];
                     $_SESSION['id_petugas'] = $row['id_petugas'];
+                    $_SESSION['level'] = $row['level'];
                     header("Location: dashboard/admin/index.php");
                     exit();
                 }else{
@@ -256,13 +258,18 @@
     // Verifikasi Laporan
 
     if (isset($_GET['verifikasilaporan'])){
+        
         $id_laporan = $_GET['id_laporan'];
+        $level = $_GET['level'];
         $status = "selesai";
         //query hapus
         $sql = ("UPDATE laporan SET status = '$status' WHERE id_laporan = '$id_laporan'");
     
-        if ($conn->query($sql) === TRUE) {
+        if ($conn->query($sql) === TRUE && $level == 'petugas') {
             header("location:../dashboard/petugas/laporan.php?success=Laporan Telah Diverifikasi");
+            exit();
+        } else if ($conn->query($sql) === TRUE && $level == 'admin') {
+            header("location:../dashboard/admin/laporan.php?success=Laporan Telah Diverifikasi");
             exit();
         }
     }
@@ -277,6 +284,7 @@
         date_default_timezone_set('Asia/Makassar');
         $tanggal_tanggapan = date_create('now')->format('Y-m-d H:i:s');
         $status = "tanggap";
+        $level = $_POST['level'];
         
         $sql = ("INSERT INTO tanggapan (id_laporan, id_user, id_petugas, tanggapan, tanggal_tanggapan) VALUES ('$id_laporan', '$id_user', '$id_petugas', '$tanggapan','$tanggal_tanggapan')");
         $sql1 = ("UPDATE laporan SET status = '$status' WHERE id_laporan = '$id_laporan'");
