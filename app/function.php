@@ -152,7 +152,9 @@
         $id_user = $_POST ['id_user'];
         $judul_laporan = $_POST ['judul_laporan'];
         $isi_laporan = $_POST ['isi_laporan'];
-        $tanggal_laporan = $_POST ['tanggal_laporan'];
+        $tanggal_kejadian = $_POST ['tanggal_kejadian'];
+        date_default_timezone_set('Asia/Makassar');
+        $tanggal_laporan = date_create('now')->format('Y-m-d H:i:s');
         $lokasi_laporan = $_POST ['lokasi_laporan'];
         $status = $_POST ['status'];
         $foto = $_FILES['foto']['name'];
@@ -167,7 +169,7 @@
                 if(in_array($ekstensi, $ekstensi_diperbolehkan) === true)  {     
                         move_uploaded_file($file_tmp, '../assets/img/user/'.$nama_gambar_baru); //memindah file gambar ke folder gambar
                         // jalankan query INSERT untuk menambah data ke database pastikan sesuai urutan (id tidak perlu karena dibikin otomatis)
-                        $sql =("INSERT INTO laporan (id_user, judul_laporan, isi_laporan, tanggal_laporan, lokasi_laporan, foto, status) VALUES ('$id_user', '$judul_laporan', '$isi_laporan','$tanggal_laporan','$lokasi_laporan', '$nama_gambar_baru', '$status')");
+                        $sql =("INSERT INTO laporan (id_user, judul_laporan, isi_laporan, tanggal_laporan, tanggal_kejadian, lokasi_laporan, foto, status) VALUES ('$id_user', '$judul_laporan', '$isi_laporan','$tanggal_laporan','$tanggal_kejadian','$lokasi_laporan', '$nama_gambar_baru', '$status')");
 
                         if ($conn->query($sql) === TRUE) {
                             header("Location:laporan.php?success=Laporan Anda Telah Tersimpan Dan Sedang Diproses");
@@ -179,7 +181,7 @@
                     exit();
                 }
         } else {
-            $sql =("INSERT INTO laporan (id_user, judul_laporan, isi_laporan, tanggal_laporan, lokasi_laporan, foto, status) VALUES ('$id_user', '$judul_laporan', '$isi_laporan','$tanggal_laporan','$lokasi_laporan', null, '$status')");
+            $sql =("INSERT INTO laporan (id_user, judul_laporan, isi_laporan, tanggal_laporan, tanggal_kejadian, lokasi_laporan, foto, status) VALUES ('$id_user', '$judul_laporan', '$isi_laporan','$tanggal_laporan','$tanggal_kejadian','$lokasi_laporan', null, '$status')");
 
             if ($conn->query($sql) === TRUE) {
                 header("Location:laporan.php?success=Laporan Anda Telah Tersimpan Dan Sedang Diproses");
@@ -211,7 +213,7 @@
         $id_user = $_POST ['id_user'];  
         $judul_laporan = $_POST ['judul_laporan'];
         $isi_laporan = $_POST ['isi_laporan'];
-        $tanggal_laporan = $_POST ['tanggal_laporan'];
+        $tanggal_kejadian = $_POST ['tanggal_kejadian'];
         $lokasi_laporan = $_POST ['lokasi_laporan'];
         $foto = $_FILES['foto']['name'];
 
@@ -233,7 +235,7 @@
                         }
                         move_uploaded_file($file_tmp, '../assets/img/user/'.$nama_gambar_baru); //memindah file gambar ke folder gambar
                         // jalankan query INSERT untuk menambah data ke database pastikan sesuai urutan (id tidak perlu karena dibikin otomatis)
-                        $sql = ("UPDATE laporan SET id_laporan='$id_laporan',id_user='$id_user',judul_laporan='$judul_laporan',isi_laporan='$isi_laporan',tanggal_laporan='$tanggal_laporan',lokasi_laporan='$lokasi_laporan',foto='$nama_gambar_baru' where id_laporan='$id_laporan'");
+                        $sql = ("UPDATE laporan SET id_laporan='$id_laporan',id_user='$id_user',judul_laporan='$judul_laporan',isi_laporan='$isi_laporan',tanggal_kejadian='$tanggal_kejadian',lokasi_laporan='$lokasi_laporan',foto='$nama_gambar_baru' where id_laporan='$id_laporan'");
 
                         if ($conn->query($sql) === TRUE) {
                             header("Location:lihatlaporan.php?success=Laporan Telah Di Edit");
@@ -245,7 +247,7 @@
                     exit();
                 }
         } else {
-            $sql = ("UPDATE laporan SET id_laporan='$id_laporan',id_user='$id_user',judul_laporan='$judul_laporan',isi_laporan='$isi_laporan',tanggal_laporan='$tanggal_laporan',lokasi_laporan='$lokasi_laporan' where id_laporan='$id_laporan'");
+            $sql = ("UPDATE laporan SET id_laporan='$id_laporan',id_user='$id_user',judul_laporan='$judul_laporan',isi_laporan='$isi_laporan',tanggal_kejadian='$tanggal_kejadian',lokasi_laporan='$lokasi_laporan' where id_laporan='$id_laporan'");
 
             if ($conn->query($sql) === TRUE) {
                 header("Location:lihatlaporan.php?success=Laporan Telah Di Edit");

@@ -223,8 +223,8 @@ if (isset($_SESSION['id_user']) && isset($_SESSION['username'])) {
                                                                                 </div>
                                                                                 <div class="row mb-3">
                                                                                     <div class="col">
-                                                                                        <label class="form-label">Tanggal Laporan</label>
-                                                                                        <input type="date" class="form-control" name="tanggal_laporan" value="<?php echo $data['tanggal_laporan']; ?>" readonly>
+                                                                                        <label class="form-label">Tanggal Kejadian</label>
+                                                                                        <input type="date" class="form-control" name="tanggal_kejadian" value="<?php echo $data['tanggal_kejadian']; ?>" readonly>
                                                                                     </div>
                                                                                     <div class="col">
                                                                                         <label for="lokasi" class="form-label">Lokasi Kejadian</label>
@@ -232,7 +232,7 @@ if (isset($_SESSION['id_user']) && isset($_SESSION['username'])) {
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="mb-3">
-                                                                                    <p>Foto Saat Ini</p>
+                                                                                    <p>Foto Kejadian</p>
                                                                                     <img src="../assets/img/user/<?php echo $data['foto']; ?>" alt="<?php echo $data['foto']; ?>" width="750px">
                                                                                 </div>
                                                                             </div>
@@ -269,7 +269,7 @@ if (isset($_SESSION['id_user']) && isset($_SESSION['username'])) {
                                                                                     <div class="row mb-3">
                                                                                         <div class="col">
                                                                                             <label class="form-label">Tanggal Kejadian</label>
-                                                                                            <input type="date" class="form-control" name="tanggal_laporan" value="<?php echo $data['tanggal_laporan']; ?>">
+                                                                                            <input type="date" class="form-control" name="tanggal_kejadian" value="<?php echo $data['tanggal_kejadian']; ?>" max="<?php date_default_timezone_set('Asia/Makassar'); echo date_create('now')->format('Y-m-d'); ?>">
                                                                                         </div>
                                                                                         <div class="col">
                                                                                             <label for="lokasi" class="form-label">Ketik Lokasi Kejadian</label>

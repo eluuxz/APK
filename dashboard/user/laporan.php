@@ -165,7 +165,7 @@ if (isset($_SESSION['id_user']) && isset($_SESSION['username'])) {
                                             <div class="row mb-3">
                                                 <div class="col">
                                                     <label class="form-label">Tanggal Kejadian</label>
-                                                    <input type="datetime-local" class="form-control" name="tanggal_laporan" value="<?php date_default_timezone_set('Asia/Makassar'); echo date_create('now')->format('Y-m-d H:i:s'); ?>" max="<?php date_default_timezone_set('Asia/Makassar'); echo date_create('now')->format('Y-m-d H:i:s'); ?>" required>
+                                                    <input type="date" class="form-control" name="tanggal_kejadian" value="<?php date_default_timezone_set('Asia/Makassar'); echo date_create('now')->format('Y-m-d'); ?>" max="<?php date_default_timezone_set('Asia/Makassar'); echo date_create('now')->format('Y-m-d'); ?>" required>
                                                 </div>
                                                 <div class="col">
                                                     <label for="lokasi" class="form-label">Ketik Lokasi Kejadian</label>
