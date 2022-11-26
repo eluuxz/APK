@@ -20,20 +20,6 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username']) && isset($_SE
         <link href="../assets/css/sb-admin-2.min.css" rel="stylesheet">
         <!-- Data Tables -->
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
-        <style>
-            .thumbnail {
-                top: -50px;
-                left: -35px;
-                display: block;
-                z-index: 999;
-                cursor: pointer;
-            }
-
-            /*change the number below to scale to the appropriate size*/
-            .thumbnail:hover {
-                transform: scale(5);
-            }
-        </style>
     </head>
 
     <body id="page-top">
@@ -173,10 +159,7 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username']) && isset($_SE
                                                         <th scope="col">No</th>
                                                         <th scope="col">Nama Pelapor</th>
                                                         <th scope="col">Judul Laporan</th>
-                                                        <th scope="col">Isi Laporan</th>
                                                         <th scope="col">Tanggal Laporan</th>
-                                                        <th scope="col">Lokasi Laporan</th>
-                                                        <th scope="col">Foto</th>
                                                         <th scope="col">Aksi</th>
                                                     </tr>
                                                 </thead>
@@ -191,31 +174,82 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username']) && isset($_SE
                                                             <th scope="row"><?= $i++; ?>.</th>
                                                             <td><?php echo $data['nama']; ?></td>
                                                             <td><?php echo $data['judul_laporan']; ?></td>
-                                                            <td><?php echo $data['isi_laporan']; ?></td>
                                                             <td><?php echo $data['tanggal_laporan']; ?></td>
-                                                            <td><?php echo $data['lokasi_laporan']; ?></td>
                                                             <td>
-                                                                <img src="../assets/img/user/<?php echo $data['foto']; ?>" alt="../assets/img/user/<?php echo $data['foto']; ?>" class="thumbnail" width="100" />
-                                                            </td>
-                                                            <td>
-                                                                <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#verify<?php echo $data['id_laporan']; ?>"> <i class="fas fa-check-square mr-2"></i>VERIFIKASI </a>
-                                                                <!-- Modal Hapus Lpaoran -->
-                                                                <div class="modal fade" id="verify<?php echo $data['id_laporan']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                                    <div class="modal-dialog">
+                                                                <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#previewlaporan<?php echo $data['id_laporan']; ?>"> <i class="fas fa-eye mr-2"></i>PREVIEW </a>
+                                                                <!-- Modal Preview Laporan -->
+                                                                <div class="modal fade" id="previewlaporan<?php echo $data['id_laporan']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                    <div class="modal-dialog modal-lg modal-dialog-scrollable">
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
-                                                                                <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Verifikasi Laporan</h5>
+                                                                                <h5 class="modal-title" id="exampleModalLabel">Preview Laporan</h5>
                                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                                     <span aria-hidden="true">&times;</span>
                                                                                 </button>
                                                                             </div>
                                                                             <div class="modal-body">
-                                                                                <p>Tekan Tombol Verifikasi Jika Ingin Verifikasi Laporan </p>
+                                                                                <div class="mb-3">
+                                                                                    <label for="judul" class="form-label">Judul Laporan</label>
+                                                                                    <input type="text" class="form-control" id="judul" name="judul_laporan" value="<?php echo $data['judul_laporan']; ?>" readonly>
+                                                                                </div>
+                                                                                <div class="mb-3">
+                                                                                    <label for="isi" class="form-label">Isi Laporan</label>
+                                                                                    <textarea class="form-control" id="isi" rows="10" name="isi_laporan" readonly><?php echo $data['isi_laporan']; ?> </textarea>
+                                                                                </div>
+                                                                                <div class="row mb-3">
+                                                                                    <div class="col">
+                                                                                        <label class="form-label">Tanggal Kejadian</label>
+                                                                                        <input type="date" class="form-control" name="tanggal_kejadian" value="<?php echo $data['tanggal_kejadian']; ?>" readonly>
+                                                                                    </div>
+                                                                                    <div class="col">
+                                                                                        <label for="lokasi" class="form-label">Lokasi Kejadian</label>
+                                                                                        <input type="text" class="form-control" id="lokasi" name="lokasi_laporan" value="<?php echo $data['lokasi_laporan']; ?>" readonly>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="mb-3">
+                                                                                    <p>Foto Kejadian</p>
+                                                                                    <img src="../assets/img/user/<?php echo $data['foto']; ?>" alt="<?php echo $data['foto']; ?>" width="750px">
+                                                                                </div>
                                                                             </div>
-                                                                            <div class="modal-footer">
+                                                                            <div class="modal-footer justify-content-center">
                                                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                                                <a href="../../app/function.php?verifikasilaporan&id_laporan=<?php echo $data['id_laporan']; ?>&level=<?php echo $_SESSION['level']; ?>" class="btn btn-success">Verifikasi</a>
                                                                             </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#verify<?php echo $data['id_laporan']; ?>"> <i class="fas fa-check-square mr-2"></i>VERIFIKASI </a>
+                                                                <!-- Modal Hapus Lpaoran -->
+                                                                <div class="modal fade" id="verify<?php echo $data['id_laporan']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                    <div class="modal-dialog">
+                                                                        <div class="modal-content">
+                                                                            <form action="" method="POST">
+                                                                                <div class="modal-header">
+                                                                                    <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Verifikasi Laporan</h5>
+                                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                        <span aria-hidden="true">&times;</span>
+                                                                                    </button>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                    <input type="hidden" class="form-control" name="id_laporan" value="<?php echo $data['id_laporan']; ?>" readonly>
+                                                                                    <input type="hidden" class="form-control" name="level" value="<?php echo $_SESSION['level']; ?>" readonly>
+                                                                                    <div class="form-group">
+                                                                                        <label for="konfirmasi">Konfirmasi Laporan</label>
+                                                                                        <select class="form-control" id="konfirmasi" name="status">
+                                                                                            <option value="selesai">Terima</option>
+                                                                                            <option value="tolak">Tolak</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                        <label for="keterangan">Keterangan</label>
+                                                                                        <textarea class="form-control" id="keterangan" rows="3" name="keterangan"></textarea>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="modal-footer">
+                                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                                    <button type="submit" class="btn btn-primary" name="verifikasilaporan">Submit</button>
+                                                                                    <!-- <a href="../../app/function.php?verifikasilaporan&id_laporan=<?php echo $data['id_laporan']; ?>&level=<?php echo $_SESSION['level']; ?>" class="btn btn-success">Verifikasi</a> -->
+                                                                                </div>
+                                                                            </form>
                                                                         </div>
                                                                     </div>
                                                                 </div>

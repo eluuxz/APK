@@ -259,19 +259,24 @@
 
     // Verifikasi Laporan
 
-    if (isset($_GET['verifikasilaporan'])){
+    if (isset($_POST['verifikasilaporan'])){
         
-        $id_laporan = $_GET['id_laporan'];
-        $level = $_GET['level'];
-        $status = "selesai";
+        $id_laporan = $_POST['id_laporan'];
+        // $level = $_POST['level'];
+        $status = $_POST['status'];
+        $keterangan = $_POST['keterangan'];
         //query hapus
-        $sql = ("UPDATE laporan SET status = '$status' WHERE id_laporan = '$id_laporan'");
+        $sql = ("UPDATE laporan SET status = '$status', keterangan = '$keterangan' WHERE id_laporan = '$id_laporan'");
     
-        if ($conn->query($sql) === TRUE && $level == 'petugas') {
-            header("location:../dashboard/petugas/laporan.php?success=Laporan Telah Diverifikasi");
-            exit();
-        } else if ($conn->query($sql) === TRUE && $level == 'admin') {
-            header("location:../dashboard/admin/laporan.php?success=Laporan Telah Diverifikasi");
+        // if ($conn->query($sql) === TRUE && $level == 'petugas') {
+        //     header("location:laporan.php?success=Laporan Telah Diverifikasi");
+        //     exit();
+        // } else if ($conn->query($sql) === TRUE && $level == 'admin') {
+        //     header("location:laporan.php?success=Laporan Telah Diverifikasi");
+        //     exit();
+        // }
+        if ($conn->query($sql) === TRUE) {
+            header("location:laporan.php?success=Laporan Telah Diverifikasi");
             exit();
         }
     }

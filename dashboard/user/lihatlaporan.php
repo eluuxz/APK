@@ -197,8 +197,34 @@ if (isset($_SESSION['id_user']) && isset($_SESSION['username'])) {
                                                                             Telah Diverifikasi
                                                                         </div>
                                                                         ';
-                                                                    }
+                                                                    } else if ($data['status'] === "tolak"){
                                                                 ?>
+                                                                <div class="w-100 p-1 bg-danger text-center rounded" data-toggle=" tooltip" data-placement="top" title="Klik Untuk Lihat Keterangan">
+                                                                    <a href="#" class="text-white text-decoration-none" data-toggle="modal" data-target="#tolak<?php echo $data['id_laporan']; ?>">Laporan Ditolak</a>
+                                                                </div>
+                                                                <!-- Modal Preview Laporan -->
+                                                                <div class="modal fade" id="tolak<?php echo $data['id_laporan']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title" id="exampleModalLabel">Keterangan Laporan</h5>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                    <span aria-hidden="true">&times;</span>
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <div class="mb-3">
+                                                                                    <label for="keterangan">Keterangan</label>
+                                                                                    <textarea class="form-control" id="keterangan" rows="6" name="keterangan" readonly><?php echo $data['keterangan']; ?></textarea>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="modal-footer justify-content-center">
+                                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <?php } ?>
                                                             </td>
                                                             <td>
                                                                 <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#previewlaporan<?php echo $data['id_laporan']; ?>"> <i class="fas fa-eye mr-2"></i>PREVIEW </a>
