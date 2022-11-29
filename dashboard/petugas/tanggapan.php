@@ -20,7 +20,7 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username'])) {
         <link href="../assets/css/sb-admin-2.min.css" rel="stylesheet">
         <!-- Data Tables -->
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
-        <style>
+        <!-- <style>
             .thumbnail {
                 top: -50px;
                 left: -35px;
@@ -33,7 +33,7 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username'])) {
             .thumbnail:hover {
                 transform: scale(5);
             }
-        </style>
+        </style> -->
     </head>
 
     <body id="page-top">

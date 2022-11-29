@@ -20,20 +20,6 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username'])) {
         <link href="../assets/css/sb-admin-2.min.css" rel="stylesheet">
         <!-- Data Tables -->
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
-        <style>
-            .thumbnail {
-                top: -50px;
-                left: -35px;
-                display: block;
-                z-index: 999;
-                cursor: pointer;
-            }
-
-            /*change the number below to scale to the appropriate size*/
-            .thumbnail:hover {
-                transform: scale(5);
-            }
-        </style>
     </head>
 
     <body id="page-top">
