@@ -181,50 +181,15 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username'])) {
 
                         <!-- Content Row -->
                         <div class="row">
-                            <!-- <div class="col">
-                                <div class="card border-left-primary shadow h-100 py-2">
-                                    <div class="card-body">
-                                        <?php if (isset($_GET['success'])) { ?>
-                                            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                                <strong><?php echo $_GET['success']; ?></strong>
-                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                        <?php } ?>
-                                        <div class="h5 mb-3 font-weight-bold text-gray-800">Tambah Data Petugas</div>
-                                        <form action="" method="POST" enctype="multipart/form-data">
-                                            <div class="mb-3">
-                                                <label for="judul" class="form-label">Ketik Judul Laporan Anda</label>
-                                                <input type="text" class="form-control" id="judul" name="judul_laporan" required>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="isi" class="form-label">Ketik Isi Laporan Anda</label>
-                                                <textarea class="form-control" id="isi" rows="3" name="isi_laporan" required></textarea>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col">
-                                                    <label class="form-label">Tanggal Kejadian</label>
-                                                    <input type="date" class="form-control" name="tanggal_kejadian" value="<?php date_default_timezone_set('Asia/Makassar'); echo date_create('now')->format('Y-m-d'); ?>" max="<?php date_default_timezone_set('Asia/Makassar'); echo date_create('now')->format('Y-m-d'); ?>" required>
-                                                </div>
-                                                <div class="col">
-                                                    <label for="lokasi" class="form-label">Ketik Lokasi Kejadian</label>
-                                                    <input type="text" class="form-control" id="lokasi" name="lokasi_laporan" required>
-                                                </div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="foto">Masukkan Foto</label>
-                                                <input type="file" class="form-control-file" id="foto" name="foto">
-                                            </div>
-                                            <input type="hidden" class="form-control" name="status" value="proses" readonly>
-                                            <div class="text-center">
-                                                <button type="submit" class="btn btn-primary btn-block" name="lapor">Lapor</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div> -->
                             <div class="col">
+                                <?php if (isset($_GET['success'])) { ?>
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        <strong><?php echo $_GET['success']; ?></strong>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                <?php } ?>
                                 <div class="card border-left-primary shadow">
                                     <!-- Card Header - Accordion -->
                                     <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
@@ -233,9 +198,24 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username'])) {
                                     <!-- Card Content - Collapse -->
                                     <div class="collapse" id="collapseCardExample">
                                         <div class="card-body">
-                                            This is a collapsable card example using Bootstrap's built in collapse
-                                            functionality. <strong>Click on the card header</strong> to see the card body
-                                            collapse and expand!
+                                            <form action="" method="POST" enctype="multipart/form-data">
+                                                <div class="mb-3">
+                                                    <label for="namapetugas" class="form-label">Masukkan Nama Petugas</label>
+                                                    <input type="text" class="form-control" id="namapetugas" name="nama_petugas" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="username" class="form-label">Masukkan Username</label>
+                                                    <input type="text" class="form-control" id="username" name="username" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="password" class="form-label">Masukkan Password</label>
+                                                    <input type="text" class="form-control" id="password" name="password" required>
+                                                </div>
+                                                <input type="hidden" class="form-control" name="level" value="petugas" readonly>
+                                                <div class="text-center">
+                                                    <button type="submit" class="btn btn-primary btn-block" name="tambahdatapetugas">Submit</button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
