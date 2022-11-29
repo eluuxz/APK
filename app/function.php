@@ -80,7 +80,7 @@
                 header("Location: daftar.php?error=Username Telah Terdaftar");
             }
             if ($user['username'] === $username && $user['nik'] === $nik) {
-                array_push($errors, "2");
+                array_push($errors, "3");
                 header("Location: daftar.php?error=NIK dan Username Telah Terdaftar");
             }
         }
@@ -124,14 +124,12 @@
                     $_SESSION['username'] = $row['username'];
                     $_SESSION['nama_petugas'] = $row['nama_petugas'];
                     $_SESSION['id_petugas'] = $row['id_petugas'];
-                    $_SESSION['level'] = $row['level'];
                     header("Location: dashboard/petugas/index.php");
                     exit();
                 }else if ($row['username'] === $uname && $row['password'] === $pass && $row['level'] === "admin") {
                     $_SESSION['username'] = $row['username'];
                     $_SESSION['nama_petugas'] = $row['nama_petugas'];
                     $_SESSION['id_petugas'] = $row['id_petugas'];
-                    $_SESSION['level'] = $row['level'];
                     header("Location: dashboard/admin/index.php");
                     exit();
                 }else{

@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    if (isset($_SESSION['id_petugas']) && isset($_SESSION['username']) && isset($_SESSION['level'])) {
+    if (isset($_SESSION['id_petugas']) && isset($_SESSION['username'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
