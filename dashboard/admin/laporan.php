@@ -1,7 +1,7 @@
 <?php
 session_start();
 include '../../app/function.php';
-if (isset($_SESSION['id_petugas']) && isset($_SESSION['username'])) {
+if (isset($_SESSION['id_petugas']) && isset($_SESSION['username']) && isset($_SESSION['level'])) {
 ?>
     <!DOCTYPE html>
     <html lang="en">
