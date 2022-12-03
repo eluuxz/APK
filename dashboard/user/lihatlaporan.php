@@ -1,7 +1,7 @@
 <?php
 session_start();
 include '../../app/function.php';
-if (isset($_SESSION['id_user']) && isset($_SESSION['username']) && isset($_SESSION['level'])) {
+if (isset($_SESSION['id_user']) && isset($_SESSION['username'])) {
 ?>
     <!DOCTYPE html>
     <html lang="en">

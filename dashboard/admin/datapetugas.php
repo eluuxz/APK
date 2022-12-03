@@ -85,14 +85,7 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username'])) {
                 <li class="nav-item active">
                     <a class="nav-link" href="datapetugas.php">
                         <i class="fas fa-user-tie"></i>
-                        <span>Data Petugas</span>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="datamasyarakat.php">
-                        <i class="fas fa-user-tie"></i>
-                        <span>Data Masyarakat</span>
+                        <span>Data Akun</span>
                     </a>
                 </li>
 
@@ -175,7 +168,7 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username'])) {
 
                         <!-- Page Heading -->
                         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                            <h1 class="h3 mb-0 text-gray-800">Data Petugas</h1>
+                            <h1 class="h3 mb-0 text-gray-800">Data Petugas & Masyarakat</h1>
                         </div>
                         <hr>
 
@@ -221,16 +214,90 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username'])) {
                                 </div>
                             </div>
                         </div>
+                        <div class="row mt-2">
+                            <div class="col">
+                                <div class="card border-left-primary shadow">
+                                    <!-- Card Header - Accordion -->
+                                    <a href="#masyarakat" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="masyarakat">
+                                        <h6 class="m-0 font-weight-bold text-primary">Tambah Data Masyarakat</h6>
+                                    </a>
+                                    <!-- Card Content - Collapse -->
+                                    <div class="collapse" id="masyarakat">
+                                        <div class="card-body">
+                                            <form action="" method="POST" enctype="multipart/form-data">
+                                                <div class="mb-3">
+                                                    <label for="namapetugas" class="form-label">Masukkan Nama Petugas</label>
+                                                    <input type="text" class="form-control" id="namapetugas" name="nama_petugas" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="username" class="form-label">Masukkan Username</label>
+                                                    <input type="text" class="form-control" id="username" name="username" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="password" class="form-label">Masukkan Password</label>
+                                                    <input type="text" class="form-control" id="password" name="password" required>
+                                                </div>
+                                                <input type="hidden" class="form-control" name="level" value="petugas" readonly>
+                                                <div class="text-center">
+                                                    <button type="submit" class="btn btn-primary btn-block" name="tambahdatapetugas">Submit</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                         <!-- Content Row -->
 
                         <div class="row mt-2">
-                            <div class="col">
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center justify-content-center mb-2">
+                                    <h1 class="h3 mb-0 text-gray-800">Petugas</h1>
+                                </div>
                                 <div class="card border-left-success shadow">
                                     <div class="card-body">
                                         <div class="row no-gutters align-items-center">
                                             <div class="table-responsive">
                                                 <table class="table" id="table_id">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">No</th>
+                                                            <th scope="col">Username</th>
+                                                            <th scope="col">Nama Petugas</th>
+                                                            <th scope="col">Aksi</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php
+                                                        $i = 1;
+
+                                                        $query_mysql = $conn->query("SELECT * FROM petugas where level ='petugas' ORDER BY id_petugas DESC");
+                                                        while ($data = $query_mysql->fetch_array()) {
+                                                        ?>
+                                                            <tr>
+                                                                <th scope="row"><?= $i++; ?>.</th>
+                                                                <td><?php echo $data['username']; ?></td>
+                                                                <td><?php echo $data['nama_petugas']; ?></td>
+                                                                <td></td>
+                                                            </tr>
+                                                        <?php } ?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center justify-content-center mb-2">
+                                    <h1 class="h3 mb-0 text-gray-800">Masyarakat</h1>
+                                </div>
+                                <div class="card border-left-success shadow">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="table-responsive">
+                                                <table class="table" id="table_id1">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">No</th>
@@ -330,6 +397,7 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username'])) {
         <script>
             $(document).ready(function() {
                 $('#table_id').DataTable();
+                $('#table_id1').DataTable();
             });
         </script>
 

@@ -80,14 +80,7 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username']) && isset($_SE
                 <li class="nav-item">
                     <a class="nav-link" href="datapetugas.php">
                         <i class="fas fa-user-tie"></i>
-                        <span>Data Petugas</span>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="datamasyarakat.php">
-                        <i class="fas fa-user-tie"></i>
-                        <span>Data Masyarakat</span>
+                        <span>Data Akun</span>
                     </a>
                 </li>
 
