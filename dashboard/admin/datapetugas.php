@@ -191,7 +191,7 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username'])) {
                                     <!-- Card Content - Collapse -->
                                     <div class="collapse" id="collapseCardExample">
                                         <div class="card-body">
-                                            <form action="" method="POST" enctype="multipart/form-data">
+                                            <form action="" method="POST">
                                                 <div class="mb-3">
                                                     <label for="namapetugas" class="form-label">Masukkan Nama Petugas</label>
                                                     <input type="text" class="form-control" id="namapetugas" name="nama_petugas" required>
@@ -280,60 +280,48 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username'])) {
                                                                 <td><?php echo $data['username']; ?></td>
                                                                 <td><?php echo $data['nama_petugas']; ?></td>
                                                                 <td>
-                                                                    <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editlaporan<?php echo $data['id_petugas']; ?>"> <i class="fas fa-edit mr-2"></i>EDIT </a>
+                                                                    <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editpetugas<?php echo $data['id_petugas']; ?>"> <i class="fas fa-edit mr-2"></i>EDIT </a>
                                                                     <!-- Modal Edit Lpaoran -->
-                                                                    <div class="modal fade" id="editlaporan<?php echo $data['id_petugas']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                    <div class="modal fade" id="editpetugas<?php echo $data['id_petugas']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                         <div class="modal-dialog modal-lg">
                                                                             <div class="modal-content">
                                                                                 <div class="modal-header">
-                                                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Laporan</h5>
+                                                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Data Petugas</h5>
                                                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                                         <span aria-hidden="true">&times;</span>
                                                                                     </button>
                                                                                 </div>
-                                                                                <form action="" method="POST" enctype="multipart/form-data">
+                                                                                <form action="" method="POST">
                                                                                     <div class="modal-body">
-                                                                                        <input type="hidden" class="form-control mb-3" value="<?php echo $data['id_user']; ?>" name="id_user" readonly>
                                                                                         <input type="hidden" class="form-control mb-3" value="<?php echo $data['id_petugas']; ?>" name="id_petugas" readonly>
                                                                                         <div class="mb-3">
-                                                                                            <label for="judul" class="form-label">Ketik Judul Laporan Anda</label>
-                                                                                            <input type="text" class="form-control" id="judul" name="judul_laporan" value="<?php echo $data['judul_laporan']; ?>">
+                                                                                            <label for="namapetugas" class="form-label">Nama Petugas</label>
+                                                                                            <input type="text" class="form-control" id="namapetugas" name="nama_petugas" value="<?php echo $data['nama_petugas']; ?>">
                                                                                         </div>
                                                                                         <div class="mb-3">
-                                                                                            <label for="isi" class="form-label">Ketik Isi Laporan Anda</label>
-                                                                                            <textarea class="form-control" id="isi" rows="10" name="isi_laporan"><?php echo $data['isi_laporan']; ?> </textarea>
-                                                                                        </div>
-                                                                                        <div class="row mb-3">
-                                                                                            <div class="col">
-                                                                                                <label class="form-label">Tanggal Kejadian</label>
-                                                                                                <input type="date" class="form-control" name="tanggal_kejadian" value="<?php echo $data['tanggal_kejadian']; ?>" max="<?php date_default_timezone_set('Asia/Makassar'); echo date_create('now')->format('Y-m-d'); ?>">
-                                                                                            </div>
-                                                                                            <div class="col">
-                                                                                                <label for="lokasi" class="form-label">Ketik Lokasi Kejadian</label>
-                                                                                                <input type="text" class="form-control" id="lokasi" name="lokasi_laporan" value="<?php echo $data['lokasi_laporan']; ?>">
-                                                                                            </div>
+                                                                                            <label for="username" class="form-label">Username</label>
+                                                                                            <input type="text" class="form-control" id="username" name="username" value="<?php echo $data['username']; ?>">
                                                                                         </div>
                                                                                         <div class="mb-3">
-                                                                                            <p>Foto Saat Ini</p>
-                                                                                            <img src="../assets/img/user/<?php echo $data['foto']; ?>" alt="<?php echo $data['foto']; ?>" width="300px">
+                                                                                            <label for="password" class="form-label">Password Saat Ini</label>
+                                                                                            <input type="text" class="form-control" id="password" name="password" value="<?php echo $data['password']; ?>" readonly>
                                                                                         </div>
                                                                                         <div class="mb-3">
-                                                                                            <label for="foto">Edit Foto</label>
-                                                                                            <input type="file" class="form-control-file" id="foto" name="foto" value="<?php echo $data['foto']; ?>">
+                                                                                            <label for="password" class="form-label">Ubah Password</label>
+                                                                                            <input type="text" class="form-control" id="password" name="password_baru">
                                                                                         </div>
-                                                                                        <input type="hidden" class="form-control" name="status" value="proses" readonly>
                                                                                     </div>
                                                                                     <div class="modal-footer">
                                                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                                                        <button type="submit" class="btn btn-primary" name="editpetugas">Edit Laporan</button>
+                                                                                        <button type="submit" class="btn btn-primary" name="editpetugas">Edit Data</button>
                                                                                     </div>
                                                                                 </form>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapuslaporan<?php echo $data['id_petugas']; ?>"> <i class="fas fa-trash-alt mr-2"></i>HAPUS </a>
+                                                                    <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusdatapetugas<?php echo $data['id_petugas']; ?>"> <i class="fas fa-trash-alt mr-2"></i>HAPUS </a>
                                                                     <!-- Modal Hapus Lpaoran -->
-                                                                    <div class="modal fade" id="hapuslaporan<?php echo $data['id_petugas']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                    <div class="modal fade" id="hapusdatapetugas<?php echo $data['id_petugas']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                         <div class="modal-dialog">
                                                                             <div class="modal-content">
                                                                                 <div class="modal-header">

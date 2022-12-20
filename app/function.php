@@ -215,6 +215,7 @@
         $isi_laporan = $_POST ['isi_laporan'];
         $tanggal_kejadian = $_POST ['tanggal_kejadian'];
         $lokasi_laporan = $_POST ['lokasi_laporan'];
+        $status = $_POST ['status'];
         $foto = $_FILES['foto']['name'];
 
         if($foto != "") {
@@ -235,7 +236,7 @@
                         }
                         move_uploaded_file($file_tmp, '../assets/img/user/'.$nama_gambar_baru); //memindah file gambar ke folder gambar
                         // jalankan query INSERT untuk menambah data ke database pastikan sesuai urutan (id tidak perlu karena dibikin otomatis)
-                        $sql = ("UPDATE laporan SET id_laporan='$id_laporan',id_user='$id_user',judul_laporan='$judul_laporan',isi_laporan='$isi_laporan',tanggal_kejadian='$tanggal_kejadian',lokasi_laporan='$lokasi_laporan',foto='$nama_gambar_baru' where id_laporan='$id_laporan'");
+                        $sql = ("UPDATE laporan SET id_laporan='$id_laporan',id_user='$id_user',judul_laporan='$judul_laporan',isi_laporan='$isi_laporan',tanggal_kejadian='$tanggal_kejadian',lokasi_laporan='$lokasi_laporan',foto='$nama_gambar_baru', status='$status' where id_laporan='$id_laporan'");
 
                         if ($conn->query($sql) === TRUE) {
                             header("Location:lihatlaporan.php?success=Laporan Telah Di Edit");
@@ -247,7 +248,7 @@
                     exit();
                 }
         } else {
-            $sql = ("UPDATE laporan SET id_laporan='$id_laporan',id_user='$id_user',judul_laporan='$judul_laporan',isi_laporan='$isi_laporan',tanggal_kejadian='$tanggal_kejadian',lokasi_laporan='$lokasi_laporan' where id_laporan='$id_laporan'");
+            $sql = ("UPDATE laporan SET id_laporan='$id_laporan',id_user='$id_user',judul_laporan='$judul_laporan',isi_laporan='$isi_laporan',tanggal_kejadian='$tanggal_kejadian',lokasi_laporan='$lokasi_laporan', status='$status' where id_laporan='$id_laporan'");
 
             if ($conn->query($sql) === TRUE) {
                 header("Location:lihatlaporan.php?success=Laporan Telah Di Edit");
@@ -303,4 +304,65 @@
     }
     // End Tanggapi Laporan
 
+    // Tambah Data Petugas
+
+    if(isset($_POST['tambahdatapetugas'])){
+
+        $nama_petugas = $_POST ['nama_petugas'];  
+        $username = $_POST ['username'];
+        $password = $_POST ['password'];
+        $level = $_POST ['level'];
+        
+        $sql = ("INSERT INTO petugas (nama_petugas, username, password, level) VALUES ('$nama_petugas', '$username', '$password','$level')");
+
+        if ($conn->query($sql) === TRUE) {
+            header("Location:datapetugas.php?success=Data Petugas Telah Di Tambahkan");
+            exit();
+        }
+    }
+
+    // End Tambah Data Petugas
+
+    // Hapus Data Petugas
+
+    if (isset($_GET['hapuspetugas'])){
+        $id_petugas = $_GET['id_petugas'];
+    
+        //query hapus
+        $querydelete = mysqli_query($conn, "DELETE FROM petugas WHERE id_petugas = '$id_petugas'");
+    
+        if ($querydelete) {
+            header("location:../dashboard/admin/datapetugas.php?success=Data Petugas Telah Dihapus");
+        }
+    }
+    // End Hapus Data Petugas
+
+    // Edit Data Petugas
+
+    if(isset($_POST['editpetugas'])){
+        
+        $id_petugas = $_POST ['id_petugas'];  
+        $nama_petugas = $_POST ['nama_petugas'];  
+        $username = $_POST ['username'];
+        $password = $_POST ['password'];
+        $password_baru = $_POST ['password_baru'];
+
+        if($password_baru != "") {
+            $sql = ("UPDATE petugas SET nama_petugas='$nama_petugas',username='$username',password='$password_baru' where id_petugas='$id_petugas'");
+
+            if ($conn->query($sql) === TRUE) {
+                header("Location:datapetugas.php?success=Data Petugas Telah Di Edit");
+                exit();
+            }
+        } else {
+            $sql = ("UPDATE petugas SET nama_petugas='$nama_petugas',username='$username',password='$password' where id_petugas='$id_petugas'");
+
+            if ($conn->query($sql) === TRUE) {
+                header("Location:datapetugas.php?success=Data Petugas Telah Di Edit");
+                exit();
+            }
+        }
+    }
+
+    // End Edit Data Petugas
 ?>
