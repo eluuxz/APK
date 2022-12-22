@@ -1,6 +1,6 @@
 <?php
-    session_start(); 
-    include 'app/function.php';
+session_start();
+include 'app/function.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -12,8 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,28 +38,28 @@
                     <form action="" method="POST">
                         <!-- Email input -->
                         <div class="form-outline mb-4">
-                            <input type="text" class="form-control" name="nik" required/>
+                            <input type="text" class="form-control" name="nik" required />
                             <label class="form-label" for="loginName">NIK</label>
                         </div>
 
                         <div class="form-outline mb-4">
-                            <input type="text" class="form-control" name="nama" required/>
+                            <input type="text" class="form-control" name="nama" required />
                             <label class="form-label" for="loginName">Nama</label>
                         </div>
 
                         <div class="form-outline mb-4">
-                            <input type="text" class="form-control" name="username" required/>
+                            <input type="text" class="form-control" name="username" required />
                             <label class="form-label" for="loginName">Username</label>
                         </div>
 
                         <!-- Password input -->
                         <div class="form-outline mb-4">
-                            <input type="password" class="form-control" name="password" required/>
+                            <input type="password" class="form-control" name="password" required />
                             <label class="form-label" for="loginPassword">Password</label>
                         </div>
 
                         <div class="form-outline mb-4">
-                            <input type="text" class="form-control" name="notelp" required/>
+                            <input type="text" class="form-control" name="notelp" required />
                             <label class="form-label" for="loginName">No.Telpon</label>
                         </div>
 
@@ -90,7 +89,7 @@
     </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>

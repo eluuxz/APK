@@ -207,7 +207,7 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username']) && isset($_SE
                                                 <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $data['total']; ?> Laporan </div>
                                             </div>
                                             <div class="col-auto">
-                                                <i class="fas fa-book-open fa-2x text-gray-300"></i>
+                                                <i class="fas fa-check-circle fa-2x text-gray-300"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -228,7 +228,7 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username']) && isset($_SE
                                                 <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $data['total']; ?> Laporan </div>
                                             </div>
                                             <div class="col-auto">
-                                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                                <i class="fas fa-bookmark fa-2x text-gray-300"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -237,11 +237,11 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username']) && isset($_SE
 
                             <!-- Pending Requests Card Example -->
                             <div class="col-xl-3 col-md-6 mb-4">
-                                <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card border-left-danger shadow h-100 py-2">
                                     <div class="card-body">
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Laporan Di Tolak</div>
+                                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Laporan Di Tolak</div>
                                                 <?php
                                                     $result = $conn->query("SELECT count(*) as total from laporan where status='tolak'");
                                                     $data = mysqli_fetch_assoc($result);

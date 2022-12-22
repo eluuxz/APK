@@ -22,7 +22,7 @@ if (isset($_SESSION['id_user']) && isset($_SESSION['username'])) {
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
         <!-- Sweet Alert -->
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <style>
+        <!-- <style>
             .thumbnail {
                 top: -50px;
                 left: -35px;
@@ -35,7 +35,7 @@ if (isset($_SESSION['id_user']) && isset($_SESSION['username'])) {
             .thumbnail:hover {
                 transform: scale(5);
             }
-        </style>
+        </style> -->
     </head>
 
     <body id="page-top">
