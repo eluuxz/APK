@@ -174,12 +174,9 @@ if (isset($_SESSION['id_user']) && isset($_SESSION['username'])) {
                                                     <tr>
                                                         <th scope="col">No</th>
                                                         <th scope="col">Judul Laporan</th>
-                                                        <th scope="col">Isi Laporan</th>
-                                                        <th scope="col">Tanggal Laporan</th>
-                                                        <th scope="col">Lokasi Laporan</th>
-                                                        <th scope="col">Foto</th>
                                                         <th scope="col">Tanggapan</th>
                                                         <th scope="col">Tanggal Di Tanggapi</th>
+                                                        <th scope="col">Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -195,16 +192,53 @@ if (isset($_SESSION['id_user']) && isset($_SESSION['username'])) {
                                                         <tr>
                                                             <th scope="row"><?= $i++; ?>.</th>
                                                             <td><?php echo $data['judul_laporan']; ?></td>
-                                                            <td><?php echo $data['isi_laporan']; ?></td>
-                                                            <td><?php echo $data['tanggal_laporan']; ?></td>
-                                                            <td><?php echo $data['lokasi_laporan']; ?></td>
-                                                            <td>
-                                                                <img src="../assets/img/user/<?php echo $data['foto']; ?>" alt="../assets/img/user/<?php echo $data['foto']; ?>" class="thumbnail" width="100" />
-                                                            </td>
                                                             <td>
                                                                 <?php echo $data['tanggapan']; ?>
                                                             </td>
                                                             <td><?php echo $data['tanggal_tanggapan']; ?></td>
+                                                            <td>
+                                                            <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#previewlaporan<?php echo $data['id_laporan']; ?>"> <i class="fas fa-eye mr-2"></i>PREVIEW </a>
+                                                                <!-- Modal Preview Laporan -->
+                                                                <div class="modal fade" id="previewlaporan<?php echo $data['id_laporan']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title" id="exampleModalLabel">Preview Laporan</h5>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                    <span aria-hidden="true">&times;</span>
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <div class="mb-3">
+                                                                                    <label for="judul" class="form-label">Judul Laporan</label>
+                                                                                    <input type="text" class="form-control" id="judul" name="judul_laporan" value="<?php echo $data['judul_laporan']; ?>" readonly>
+                                                                                </div>
+                                                                                <div class="mb-3">
+                                                                                    <label for="isi" class="form-label">Isi Laporan</label>
+                                                                                    <textarea class="form-control" id="isi" rows="10" name="isi_laporan" readonly><?php echo $data['isi_laporan']; ?> </textarea>
+                                                                                </div>
+                                                                                <div class="row mb-3">
+                                                                                    <div class="col">
+                                                                                        <label class="form-label">Tanggal Kejadian</label>
+                                                                                        <input type="date" class="form-control" name="tanggal_kejadian" value="<?php echo $data['tanggal_kejadian']; ?>" readonly>
+                                                                                    </div>
+                                                                                    <div class="col">
+                                                                                        <label for="lokasi" class="form-label">Lokasi Kejadian</label>
+                                                                                        <input type="text" class="form-control" id="lokasi" name="lokasi_laporan" value="<?php echo $data['lokasi_laporan']; ?>" readonly>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="mb-3">
+                                                                                    <p>Foto Kejadian</p>
+                                                                                    <img src="../assets/img/user/<?php echo $data['foto']; ?>" alt="<?php echo $data['foto']; ?>" width="750px">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="modal-footer justify-content-center">
+                                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
                                                         </tr>
                                                     <?php } ?>
                                                 </tbody>

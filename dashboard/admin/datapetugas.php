@@ -214,39 +214,6 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username'])) {
                                 </div>
                             </div>
                         </div>
-                        <div class="row mt-2">
-                            <div class="col">
-                                <div class="card border-left-primary shadow">
-                                    <!-- Card Header - Accordion -->
-                                    <a href="#masyarakat" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="masyarakat">
-                                        <h6 class="m-0 font-weight-bold text-primary">Tambah Data Masyarakat</h6>
-                                    </a>
-                                    <!-- Card Content - Collapse -->
-                                    <div class="collapse" id="masyarakat">
-                                        <div class="card-body">
-                                            <form action="" method="POST" enctype="multipart/form-data">
-                                                <div class="mb-3">
-                                                    <label for="namapetugas" class="form-label">Masukkan Nama Petugas</label>
-                                                    <input type="text" class="form-control" id="namapetugas" name="nama_petugas" required>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="username" class="form-label">Masukkan Username</label>
-                                                    <input type="text" class="form-control" id="username" name="username" required>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="password" class="form-label">Masukkan Password</label>
-                                                    <input type="text" class="form-control" id="password" name="password" required>
-                                                </div>
-                                                <input type="hidden" class="form-control" name="level" value="petugas" readonly>
-                                                <div class="text-center">
-                                                    <button type="submit" class="btn btn-primary btn-block" name="tambahdatapetugas">Submit</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                         <!-- Content Row -->
 
@@ -378,7 +345,44 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username'])) {
                                                                 <th scope="row"><?= $i++; ?>.</th>
                                                                 <td><?php echo $data['nik']; ?></td>
                                                                 <td><?php echo $data['nama']; ?></td>
-                                                                <td></td>
+                                                                <td>
+                                                                    <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editpetugas<?php echo $data['id_user']; ?>"> <i class="fas fa-eye mr-2"></i>PREVIEW</a>
+                                                                    <!-- Preview -->
+                                                                    <div class="modal fade" id="editpetugas<?php echo $data['id_user']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                        <div class="modal-dialog modal-lg">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header">
+                                                                                    <h5 class="modal-title" id="exampleModalLabel">Preview Data Masyarakat</h5>
+                                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                        <span aria-hidden="true">&times;</span>
+                                                                                    </button>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                    <div class="mb-3">
+                                                                                        <label for="nik" class="form-label">NIK</label>
+                                                                                        <input type="text" class="form-control" id="nik" name="nik" value="<?php echo $data['nik']; ?>" readonly>
+                                                                                    </div>
+                                                                                    <div class="mb-3">
+                                                                                        <label for="username" class="form-label">Username</label>
+                                                                                        <input type="text" class="form-control" id="username" name="username" value="<?php echo $data['username']; ?>" readonly>
+                                                                                    </div>
+                                                                                    <div class="mb-3">
+                                                                                        <label for="password" class="form-label">Password</label>
+                                                                                        <input type="text" class="form-control" id="password" name="password" value="<?php echo $data['password']; ?>" readonly>
+                                                                                    </div>
+                                                                                    <div class="mb-3">
+                                                                                        <label for="notelp" class="form-label">No.Telp</label>
+                                                                                        <input type="text" class="form-control" id="notelp" name="notelp" value="<?php echo $data['notelp']; ?>" readonly>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="modal-footer justify-content-center">
+                                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- End Preview -->
+                                                                </td>
                                                             </tr>
                                                         <?php } ?>
                                                     </tbody>

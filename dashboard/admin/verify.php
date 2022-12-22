@@ -180,10 +180,7 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username']) && isset($_SE
                                                         <th scope="col">No</th>
                                                         <th scope="col">Nama Pelapor</th>
                                                         <th scope="col">Judul Laporan</th>
-                                                        <th scope="col">Isi Laporan</th>
                                                         <th scope="col">Tanggal Laporan</th>
-                                                        <th scope="col">Lokasi Laporan</th>
-                                                        <th scope="col">Foto</th>
                                                         <th scope="col">Aksi</th>
                                                     </tr>
                                                 </thead>
@@ -198,12 +195,7 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username']) && isset($_SE
                                                             <th scope="row"><?= $i++; ?>.</th>
                                                             <td><?php echo $data['nama']; ?></td>
                                                             <td><?php echo $data['judul_laporan']; ?></td>
-                                                            <td><?php echo $data['isi_laporan']; ?></td>
                                                             <td><?php echo $data['tanggal_laporan']; ?></td>
-                                                            <td><?php echo $data['lokasi_laporan']; ?></td>
-                                                            <td>
-                                                                <img src="../assets/img/user/<?php echo $data['foto']; ?>" alt="../assets/img/user/<?php echo $data['foto']; ?>" class="thumbnail" width="100" />
-                                                            </td>
                                                             <td>
                                                                 <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#verify<?php echo $data['id_laporan']; ?>"> <i class="fas fa-check-square mr-2"></i>TANGGAPI </a>
                                                                 <!-- Modal Hapus Lpaoran -->
