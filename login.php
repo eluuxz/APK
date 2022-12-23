@@ -71,6 +71,9 @@
                         <div class="text-center">
                             <p>Belum punya akun ?<a href="daftar.php"> Silahkan Daftar</a></p>
                         </div>
+                        <div class="text-center">
+                            <p>Kembali Ke <a href="index.php">Halaman Awal</a></p>
+                        </div>
                     </form>
                 </div>
             </div>

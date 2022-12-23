@@ -365,4 +365,19 @@
     }
 
     // End Edit Data Petugas
+
+
+    // Hapus Data Masyarakat
+
+    if (isset($_GET['hapususer'])){
+        $id_user = $_GET['id_user'];
+    
+        //query hapus
+        $querydelete = mysqli_query($conn, "DELETE FROM users WHERE id_user = '$id_user'");
+    
+        if ($querydelete) {
+            header("location:../dashboard/admin/datapetugas.php?success=Data Masyarakat Telah Dihapus");
+        }
+    }
+    // End Hapus Data Masyarakat
 ?>

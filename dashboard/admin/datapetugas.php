@@ -382,6 +382,29 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username'])) {
                                                                         </div>
                                                                     </div>
                                                                     <!-- End Preview -->
+                                                                    <!-- Hapus Data Masyarakat -->
+                                                                    <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusdatamasyarakat<?php echo $data['id_user']; ?>"> <i class="fas fa-trash-alt mr-2"></i>HAPUS </a>
+                                                                    <!-- Modal Hapus Lpaoran -->
+                                                                    <div class="modal fade" id="hapusdatamasyarakat<?php echo $data['id_user']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                        <div class="modal-dialog">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header">
+                                                                                    <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Hapus</h5>
+                                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                        <span aria-hidden="true">&times;</span>
+                                                                                    </button>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                    <p>Apakah Anda Yakin Ingin Menghapus ? </p>
+                                                                                </div>
+                                                                                <div class="modal-footer">
+                                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                                    <a href="../../app/function.php?hapususer&id_user=<?php echo $data['id_user']; ?>" class="btn btn-danger">Hapus</a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- End Hapus Data Masyarakat -->
                                                                 </td>
                                                             </tr>
                                                         <?php } ?>

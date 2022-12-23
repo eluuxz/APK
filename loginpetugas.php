@@ -63,6 +63,10 @@
                                 <?php echo $_GET['error']; ?>
                             </div>
                         <?php } ?>
+
+                        <div class="text-center">
+                            <p>Kembali Ke <a href="index.php">Halaman Awal</a></p>
+                        </div>
                     </form>
                 </div>
             </div>

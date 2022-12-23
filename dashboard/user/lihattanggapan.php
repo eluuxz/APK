@@ -174,7 +174,7 @@ if (isset($_SESSION['id_user']) && isset($_SESSION['username'])) {
                                                     <tr>
                                                         <th scope="col">No</th>
                                                         <th scope="col">Judul Laporan</th>
-                                                        <th scope="col">Tanggapan</th>
+                                                        <th scope="col">Tanggal Laporan</th>
                                                         <th scope="col">Tanggal Di Tanggapi</th>
                                                         <th scope="col">Aksi</th>
                                                     </tr>
@@ -193,7 +193,7 @@ if (isset($_SESSION['id_user']) && isset($_SESSION['username'])) {
                                                             <th scope="row"><?= $i++; ?>.</th>
                                                             <td><?php echo $data['judul_laporan']; ?></td>
                                                             <td>
-                                                                <?php echo $data['tanggapan']; ?>
+                                                                <?php echo $data['tanggal_laporan']; ?>
                                                             </td>
                                                             <td><?php echo $data['tanggal_tanggapan']; ?></td>
                                                             <td>
@@ -230,6 +230,10 @@ if (isset($_SESSION['id_user']) && isset($_SESSION['username'])) {
                                                                                 <div class="mb-3">
                                                                                     <p>Foto Kejadian</p>
                                                                                     <img src="../assets/img/user/<?php echo $data['foto']; ?>" alt="<?php echo $data['foto']; ?>" width="750px">
+                                                                                </div>
+                                                                                <div class="mb-3">
+                                                                                    <p>Tanggapan</p>
+                                                                                    <textarea class="form-control" cols="30" rows="10" readonly><?= $data["tanggapan"]; ?></textarea>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="modal-footer justify-content-center">
