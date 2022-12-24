@@ -152,7 +152,7 @@
         <footer class="page-footer font-small blue text-bg-primary">
             <!-- Copyright -->
             <div class="footer-copyright text-center py-2">©Copyright
-                <a href="/" class="text-decoration-none text-white"> Khairul </a>
+                <a href="https://www.instagram.com/eluuxz" class="text-decoration-none text-white" target="blank"> Khairul </a>
             </div>
             <!-- Copyright -->
         </footer>

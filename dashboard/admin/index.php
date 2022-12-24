@@ -34,7 +34,7 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username']) && isset($_SE
             <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
                 <!-- Sidebar - Brand -->
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="fas fa-atlas"></i>
                     </div>
@@ -269,7 +269,7 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username']) && isset($_SE
                 <footer class="sticky-footer bg-white">
                     <div class="container my-auto">
                         <div class="copyright text-center my-auto">
-                            <span>Copyright &copy; Your Website 2021</span>
+                            <span>Copyright &copy; Eluuxz 2022</span>
                         </div>
                     </div>
                 </footer>

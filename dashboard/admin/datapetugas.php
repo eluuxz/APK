@@ -36,7 +36,7 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username'])) {
             <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
                 <!-- Sidebar - Brand -->
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="fas fa-atlas"></i>
                     </div>
@@ -230,7 +230,6 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username'])) {
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">No</th>
-                                                            <th scope="col">Username</th>
                                                             <th scope="col">Nama Petugas</th>
                                                             <th scope="col">Aksi</th>
                                                         </tr>
@@ -244,7 +243,6 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username'])) {
                                                         ?>
                                                             <tr>
                                                                 <th scope="row"><?= $i++; ?>.</th>
-                                                                <td><?php echo $data['username']; ?></td>
                                                                 <td><?php echo $data['nama_petugas']; ?></td>
                                                                 <td>
                                                                     <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editpetugas<?php echo $data['id_petugas']; ?>"> <i class="fas fa-edit mr-2"></i>EDIT </a>
@@ -346,9 +344,9 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username'])) {
                                                                 <td><?php echo $data['nik']; ?></td>
                                                                 <td><?php echo $data['nama']; ?></td>
                                                                 <td>
-                                                                    <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editpetugas<?php echo $data['id_user']; ?>"> <i class="fas fa-eye mr-2"></i>PREVIEW</a>
+                                                                    <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#previewdatapetugas<?php echo $data['id_user']; ?>"> <i class="fas fa-eye mr-2"></i>PREVIEW</a>
                                                                     <!-- Preview -->
-                                                                    <div class="modal fade" id="editpetugas<?php echo $data['id_user']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                    <div class="modal fade" id="previewdatapetugas<?php echo $data['id_user']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                         <div class="modal-dialog modal-lg">
                                                                             <div class="modal-content">
                                                                                 <div class="modal-header">
@@ -427,7 +425,7 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username'])) {
                 <footer class="sticky-footer bg-white">
                     <div class="container my-auto">
                         <div class="copyright text-center my-auto">
-                            <span>Copyright &copy; Your Website 2021</span>
+                            <span>Copyright &copy; Eluuxz 2022</span>
                         </div>
                     </div>
                 </footer>

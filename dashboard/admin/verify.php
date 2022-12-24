@@ -45,7 +45,7 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username']) && isset($_SE
             <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
                 <!-- Sidebar - Brand -->
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="fas fa-atlas"></i>
                     </div>
