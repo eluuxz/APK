@@ -159,6 +159,14 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username']) && isset($_SE
                                                 </button>
                                             </div>
                                         <?php } ?>
+                                        <?php if (isset($_GET['error'])) { ?>
+                                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                <strong><?php echo $_GET['error']; ?></strong>
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                        <?php } ?>
                                         <div class="table-responsive">
                                             <table class="table" id="table_id">
                                                 <thead>

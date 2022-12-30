@@ -276,9 +276,12 @@
         //     header("location:laporan.php?success=Laporan Telah Diverifikasi");
         //     exit();
         // }
-        if ($conn->query($sql) === TRUE) {
+        if ($conn->query($sql) === TRUE  && $status === 'selesai') {
             header("location:laporan.php?success=Laporan Telah Diverifikasi");
             exit();
+        } else if ($conn->query($sql) === TRUE  && $status === 'tolak') {
+            header("location:laporan.php?error=Laporan Ditolak");
+            exit();  
         }
     }
     // End Verifikasi Laporan

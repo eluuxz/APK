@@ -20,19 +20,6 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username']) && isset($_SE
         <link href="../assets/css/sb-admin-2.min.css" rel="stylesheet">
         <!-- Data Tables -->
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
-        <style>
-            .thumbnail {
-                top: -50px;
-                left: -35px;
-                display: block;
-                z-index: 999;
-                cursor: pointer;
-            }
-
-            /*change the number below to scale to the appropriate size*/
-            .thumbnail:hover {
-                transform: scale(5);
-            }
         </style>
     </head>
 
@@ -173,10 +160,7 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username']) && isset($_SE
                                                         <th scope="col">No</th>
                                                         <th scope="col">Nama Pelapor</th>
                                                         <th scope="col">Judul Laporan</th>
-                                                        <th scope="col">Isi Laporan</th>
                                                         <th scope="col">Tanggal Laporan</th>
-                                                        <th scope="col">Lokasi Laporan</th>
-                                                        <th scope="col">Foto</th>
                                                         <th scope="col">Aksi</th>
                                                     </tr>
                                                 </thead>
@@ -191,12 +175,7 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username']) && isset($_SE
                                                             <th scope="row"><?= $i++; ?>.</th>
                                                             <td><?php echo $data['nama']; ?></td>
                                                             <td><?php echo $data['judul_laporan']; ?></td>
-                                                            <td><?php echo $data['isi_laporan']; ?></td>
                                                             <td><?php echo $data['tanggal_laporan']; ?></td>
-                                                            <td><?php echo $data['lokasi_laporan']; ?></td>
-                                                            <td>
-                                                                <img src="../assets/img/user/<?php echo $data['foto']; ?>" alt="../assets/img/user/<?php echo $data['foto']; ?>" class="thumbnail" width="100" />
-                                                            </td>
                                                             <td>
                                                                 <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#verify<?php echo $data['id_laporan']; ?>"> <i class="fas fa-check-square mr-2"></i>TANGGAPI </a>
                                                                 <!-- Modal Hapus Lpaoran -->
@@ -211,7 +190,6 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username']) && isset($_SE
                                                                             </div>
                                                                             <form action="" method="POST">
                                                                                 <div class="modal-body">
-                                                                                    <input type="text" class="form-control mb-3" value="<?php echo $_SESSION['level']; ?>" name="level" readonly>
                                                                                     <input type="hidden" class="form-control mb-3" value="<?php echo $data['id_user']; ?>" name="id_user" readonly>
                                                                                     <input type="hidden" class="form-control mb-3" value="<?php echo $data['id_laporan']; ?>" name="id_laporan" readonly>
                                                                                     <input type="hidden" class="form-control" value="<?php echo $_SESSION['id_petugas']; ?>" name="id_petugas" readonly>
@@ -226,7 +204,7 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username']) && isset($_SE
                                                                                     <div class="row mb-3">
                                                                                         <div class="col">
                                                                                             <label class="form-label">Tanggal Kejadian</label>
-                                                                                            <input type="date" class="form-control" name="tanggal_laporan" value="<?php echo $data['tanggal_laporan']; ?>" readonly>
+                                                                                            <input type="date" class="form-control" name="tanggal_kejadian" value="<?php echo $data['tanggal_kejadian']; ?>" readonly>
                                                                                         </div>
                                                                                         <div class="col">
                                                                                             <label for="lokasi" class="form-label">Lokasi Kejadian</label>

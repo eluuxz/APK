@@ -197,7 +197,7 @@ if (isset($_SESSION['id_user']) && isset($_SESSION['username'])) {
                                                             </td>
                                                             <td><?php echo $data['tanggal_tanggapan']; ?></td>
                                                             <td>
-                                                            <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#previewlaporan<?php echo $data['id_laporan']; ?>"> <i class="fas fa-eye mr-2"></i>PREVIEW </a>
+                                                            <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#previewlaporan<?php echo $data['id_laporan']; ?>"> <i class="fas fa-eye mr-2"></i>LIHAT TANGGAPAN</a>
                                                                 <!-- Modal Preview Laporan -->
                                                                 <div class="modal fade" id="previewlaporan<?php echo $data['id_laporan']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                     <div class="modal-dialog modal-lg modal-dialog-scrollable">
