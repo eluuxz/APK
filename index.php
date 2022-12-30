@@ -52,10 +52,9 @@
                 <div class="text-center col-8 text-light" data-aos="zoom-in-down" data-aos-easing="linear" data-aos-duration="1000" data-aos-anchor-placement="top-bottom">
                     <img src="img/logo.png" class="rounded mx-auto d-block h-50 mt-4 mb-4" alt="...">
                     <h1>Pengaduan Masyarakat Biringkanaya</h1>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium alias debitis,
-                        officiis accusamus omnis unde eligendi repudiandae illo delectus,
-                        dolore aliquam doloremque libero reiciendis iste excepturi exercitationem, provident necessitatibus
-                        error.</p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque aliquam laborum in doloremque praesentium sequi eligendi ipsum itaque atque veritatis sed culpa sapiente quaerat quisquam ullam error, perferendis rerum inventore earum porro, cumque at? Blanditiis ut excepturi facilis eligendi quia autem eos laboriosam est, at dignissimos error, sed natus, saepe dolorum? Ad voluptates magni itaque corporis ullam at voluptate esse non aut. In aliquam tenetur reiciendis aperiam maiores saepe, eveniet placeat ipsum mollitia sequi quam libero natus laborum nesciunt ?
+                    </p>
                     <a href="login.php" class="btn btn-light">Buat laporan sekarang!</a>
                 </div>
             </div>

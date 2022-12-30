@@ -269,7 +269,7 @@ if (isset($_SESSION['id_user']) && isset($_SESSION['username'])) {
                                                                     </div>
                                                                 </div>
 
-                                                                <a href="#" class="btn btn-primary btn-sm <?php if ($data['status'] === "tanggap" || $data['status'] === "selesai"){ echo 'disabled'; } ?>" data-toggle="modal" data-target="#editlaporan<?php echo $data['id_laporan']; ?>"> <i class="fas fa-edit mr-2"></i>EDIT </a>
+                                                                <a href="#" class="btn btn-primary btn-sm <?php if ($data['status'] === "tanggap" || $data['status'] === "selesai"){ echo 'disabled d-none'; } ?>" data-toggle="modal" data-target="#editlaporan<?php echo $data['id_laporan']; ?>"> <i class="fas fa-edit mr-2"></i>EDIT </a>
                                                                 <!-- Modal Edit Lpaoran -->
                                                                 <div class="modal fade" id="editlaporan<?php echo $data['id_laporan']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                     <div class="modal-dialog modal-lg">
@@ -320,7 +320,7 @@ if (isset($_SESSION['id_user']) && isset($_SESSION['username'])) {
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <a href="#" class="btn btn-danger btn-sm <?php if ($data['status'] === "tanggap" || $data['status'] === "selesai"){ echo 'disabled'; } ?>" data-toggle="modal" data-target="#hapuslaporan<?php echo $data['id_laporan']; ?>"> <i class="fas fa-trash-alt mr-2"></i>HAPUS </a>
+                                                                <a href="#" class="btn btn-danger btn-sm <?php if ($data['status'] === "tanggap" || $data['status'] === "selesai"){ echo 'disabled d-none'; } ?>" data-toggle="modal" data-target="#hapuslaporan<?php echo $data['id_laporan']; ?>"> <i class="fas fa-trash-alt mr-2"></i>HAPUS </a>
                                                                 <!-- Modal Hapus Lpaoran -->
                                                                 <div class="modal fade" id="hapuslaporan<?php echo $data['id_laporan']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                     <div class="modal-dialog">
