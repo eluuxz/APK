@@ -62,6 +62,7 @@
 
         $nik = $_POST ['nik'];
         $nama = $_POST ['nama'];
+        $email = $_POST ['email'];
         $username = $_POST ['username'];
         $password = $_POST ['password'];
         $notelp = $_POST ['notelp'];
@@ -86,7 +87,7 @@
         }
 
         if (count($errors) == 0) {
-            $sql =("INSERT INTO users (nik, username, password, nama, notelp) VALUES ('$nik', '$username', '$password','$nama','$notelp')");
+            $sql =("INSERT INTO users (nik, email, username, password, nama, notelp) VALUES ('$nik','$email','$username', '$password','$nama','$notelp')");
             if ($conn->query($sql) === TRUE) {
                 header("Location: daftar.php?success=Akun Anda Telah Terdaftar Silahkan Login");
                 exit();

@@ -48,6 +48,11 @@ include 'app/function.php';
                         </div>
 
                         <div class="form-outline mb-4">
+                            <input type="email" class="form-control" name="email" required />
+                            <label class="form-label" for="loginName">Email</label>
+                        </div>
+
+                        <div class="form-outline mb-4">
                             <input type="text" class="form-control" name="username" required />
                             <label class="form-label" for="loginName">Username</label>
                         </div>

@@ -361,6 +361,10 @@ if (isset($_SESSION['id_petugas']) && isset($_SESSION['username'])) {
                                                                                         <input type="text" class="form-control" id="nik" name="nik" value="<?php echo $data['nik']; ?>" readonly>
                                                                                     </div>
                                                                                     <div class="mb-3">
+                                                                                        <label for="email" class="form-label">Email</label>
+                                                                                        <input type="text" class="form-control" id="email" name="email" value="<?php echo $data['email']; ?>" readonly>
+                                                                                    </div>
+                                                                                    <div class="mb-3">
                                                                                         <label for="username" class="form-label">Username</label>
                                                                                         <input type="text" class="form-control" id="username" name="username" value="<?php echo $data['username']; ?>" readonly>
                                                                                     </div>
